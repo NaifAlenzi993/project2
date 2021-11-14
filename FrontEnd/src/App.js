@@ -14,6 +14,7 @@ import mainten from "./component/maintenance/maintenance"
 
 //اقسام فرعية
 import Select from './component/cars/Select';
+import Search from './component/search/Search';
 
 
 
@@ -44,6 +45,7 @@ function App() {
                   <Route path="/Cars" render = {() => (
                     <Cars prodectsTr = {prodects}></Cars>
                   )}/>
+                  <Route path="/search" component={Search}/>
                   <Route path="/Parts" component={Parts} />
                   <Route path="/mainten" component={mainten} />
                   <Route path="/car/:id" exact component={Select} />

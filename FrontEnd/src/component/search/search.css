@@ -1,0 +1,22 @@
+#items_Cars{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+}
+
+#inputSearch{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 10px;
+    border: 0.5px solid black;
+
+    width: 15%;
+}
+
+#searchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

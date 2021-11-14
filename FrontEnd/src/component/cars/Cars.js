@@ -44,11 +44,7 @@ export default function Cars() {
     return (
         <div>
             <div className="container">
-                <div className="menu my-2" id='menu' >
-                    <div className="btn">سيارات عائلية</div>
-                    <div className="btn">سيارات متوسطه</div>
-                    <div className="btn">سيارات اقتصادية</div>
-                </div>  
+                
 
                 <div className="listcars">
                     {carsDisplayOnPage(cars.cars)}
