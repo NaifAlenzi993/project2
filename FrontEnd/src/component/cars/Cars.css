@@ -3,42 +3,32 @@
     height: 100%;
 }
 
-#menu {
-    display: flex;
-    background-color:rgba(37, 37, 36, 0);
-    justify-content: center;
+#icon{
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
 }
 
-.btn {
-    width: 160px;
-    margin: 10px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 5px;
-    border: 1px solid rgb(61, 58, 58);
-    margin-top: 10px;
-    transition: 0.5s;
+#icon:hover{
+    color: black;
 }
 
-.btn:hover {
-    background-color: rgb(39, 36, 36);
-    color: rgb(255, 255, 255);
-}
 
 .listcars{
     background-color: rgb(255, 253, 253);
-    width: 75%;
+    width: 90%;
     height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
 }
 
-#items_Cars{
-display: flex;
-justify-content: center;
+#items_Cars1 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
 }
-
 
 
 #car_item{

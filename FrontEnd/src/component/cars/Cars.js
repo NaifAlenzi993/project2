@@ -24,8 +24,29 @@ export default function Cars() {
         })
     }, [])
 
+    const likedHandleClick = async (id)=> {
+        const response = await axios.post(`http://localhost:5000/like/${id}`, {
+            id: id
+        });
+        
+            // const response = await axios.delete(`http://localhost:5000/like/${id}`)
+
+            // console.log(response);
+           
+     
+    }
+
+    const UnlikedHandleClick = async (id)=> {
+
+            const response = await axios.delete(`http://localhost:5000/like/${id}`)
+
+            console.log(response);
+           
+     
+    }
+
     function carsDisplayOnPage(arr) {
-        return <div className= "row" id='items_Cars'>
+        return <div className= "row" id='items_Cars1'>
                     {arr && arr.map((elem , i) => {
                         
                         return <div key={i}  id='car_item'>
@@ -33,7 +54,9 @@ export default function Cars() {
                                     <img id='img_id' src={elem.url} alt="" width={290} height={180}/>
                             </Link>  
                                 <span>{elem.name}</span>
-                                <div><img src="" alt="" /></div>  
+                                <div id='icon' onClick={()=>{likedHandleClick(elem.id)}}>+</div>
+                                <div id='icon' onClick={()=>{UnlikedHandleClick(elem.id)}}>-</div>  
+
 
                               </div>
                     })}
