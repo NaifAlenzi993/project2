@@ -33,7 +33,7 @@ export class Header extends Component {
                     
                     <Nav.Link> <Link id='navLink' to="/Home">Home</Link> </Nav.Link>
                     <Nav.Link> <Link id='navLink' to="/search">Search</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/Cart">Cart</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/Bookmark">Bookmark</Link> </Nav.Link>
                     <Nav.Link> <Link id='navLink' to="/Home">Login</Link> </Nav.Link>
                     </Nav>
 

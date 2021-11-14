@@ -15,6 +15,7 @@ import mainten from "./component/maintenance/maintenance"
 //اقسام فرعية
 import Select from './component/cars/Select';
 import Search from './component/search/Search';
+import Bookmark from './component/bookmark/Bookmark';
 
 
 
@@ -49,6 +50,9 @@ function App() {
                   <Route path="/Parts" component={Parts} />
                   <Route path="/mainten" component={mainten} />
                   <Route path="/car/:id" exact component={Select} />
+                  <Route path="/bookmark" exact component={Bookmark} />
+
+                  
                </div>
        </BrowserRouter>
     </>
