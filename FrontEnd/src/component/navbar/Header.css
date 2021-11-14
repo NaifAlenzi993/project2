@@ -1,0 +1,25 @@
+#navLink:hover{
+    border-bottom: 2px solid rgb(169, 3, 3);
+    border-end-start-radius: 5px;
+    }
+
+    #item:link {
+        text-decoration: none;
+        color: rgb(48, 47, 48);
+    }
+
+    #item {
+        text-decoration: none;
+        color: rgb(48, 47, 48);
+    }
+  
+    
+#navLink{
+    text-decoration: none;
+    font-weight: bold;
+    translate: 5s;    
+}
+
+#welcome{
+    background-color: rgba(249, 250, 253, 0.296);
+}
