@@ -1,5 +1,6 @@
 import React, {useState , useEffect} from 'react'
 import axios from 'axios';
+import "../Profile/Profile.css"
 
 
 export default function Profile() {
@@ -18,8 +19,12 @@ export default function Profile() {
      
         function profilePage(arr){
             return <div>
+            <h2 id="profile-header">My profile</h2>
                 {arr && arr.map((elem , i )=>{
                     return (
+                        
+                    <div >
+                        
                         <div>
                         <span>{elem.id}</span>
                         <br />
@@ -32,6 +37,7 @@ export default function Profile() {
                         <span>{elem.type}</span>
                         <br />
                         </div>
+                    </div>
                         
                     )
                 

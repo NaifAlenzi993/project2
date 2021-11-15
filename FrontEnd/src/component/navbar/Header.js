@@ -18,17 +18,17 @@ export class Header extends Component {
                     
                     <Navbar.Brand > 
                         <img src={logo} width="40" height={"40"}/>
-                        <span className='ml-2'>Cars Store</span> 
+                        <span className='ml-2'>World Of Cars</span> 
                     </Navbar.Brand>
                      
                     <Navbar.Toggle/>
                     <Navbar.Collapse className="justify-content-end">
 
                     <Nav> 
-                    <NavDropdown id='NavDropown' title = "الأقسام">
-                        <NavDropdown.Item > <Link id="item" to="/Cars"> قسم السيارات</Link></NavDropdown.Item>
-                        <NavDropdown.Item> <Link id="item" to="/Parts"> قسم الاكسسوارات</Link> </NavDropdown.Item>
-                        <NavDropdown.Item> <Link id="item" to="/mainten"> قسم الصيانة</Link></NavDropdown.Item>
+                    <NavDropdown id='NavDropown' title = "CATEGORIES">
+                        <NavDropdown.Item > <Link id="item" to="/Cars">CARS</Link></NavDropdown.Item>
+                        <NavDropdown.Item> <Link id="item" to="/Parts">ACCESSORY</Link> </NavDropdown.Item>
+                        <NavDropdown.Item> <Link id="item" to="/mainten">SERVICE</Link></NavDropdown.Item>
                     </NavDropdown>
                     
                     <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
