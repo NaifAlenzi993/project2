@@ -16,11 +16,22 @@ let Prodects = { cars: [
                         {id: 6 , name:"Chevrolet Cheyenne 2019" , url:"https://s.car.info/image_files/360/0-817755.jpg" , info:"" , price:57000 , type:"larg" , comments: [], like:"black"}] , } 
 
 
+const users = [
+  {id:1 , name:"Mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB8OMuPIqaW0B7IGlseraXzyJM_-h797mqmA&usqp=CAU"},
+  {id:2 , name:"Naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:"https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"}
+
+]
+
 const Likes = []
 
 app.get("/", (req, res) => {
   res.status(200);
   res.json("hello app");
+});
+
+app.get("/users", (req, res) => {
+  res.status(200);
+  res.json(users);
 });
 
 app.get("/prodects", (req, res) => {

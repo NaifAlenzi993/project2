@@ -17,6 +17,7 @@ import Select from './component/cars/Select';
 import Search from './component/search/Search';
 import Bookmark from './component/bookmark/Bookmark';
 import Login from './component/registry/Login';
+import Profile from './component/Profile/Profile';
 
 
 
@@ -53,6 +54,7 @@ function App() {
                   <Route path="/car/:id" exact component={Select} />
                   <Route path="/bookmark" exact component={Bookmark} />
                   <Route path="/login" exact component={Login} />
+                  <Route path="/profile" exact component={Profile} />
                   
 
 

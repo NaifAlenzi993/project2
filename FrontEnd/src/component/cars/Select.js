@@ -20,10 +20,16 @@ export default function Select() {
     return (
         <div>
             <div className="container">
-                <img src={cars.url} alt="" />
+            
+
+           
+
 
                 <div id="info-car">
-                    
+                <img src={cars.url} alt="" /> <br />
+                <span>{cars.name}</span>
+                <br />
+                <span>{cars.price}</span>
                 </div>
 
             </div>
