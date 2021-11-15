@@ -38,16 +38,18 @@
     justify-content: center;
     margin: auto;
     width: 100%;
-   background-color: rgba(211, 211, 211, 0);
+    background-color: rgba(211, 211, 211, 0);
 }
 
 
 #car_item{
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 17px;
   width: auto;
   background-color: rgba(255, 255, 250, 0.795);
   margin: 5px;
   margin-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   box-shadow: 0px 0px 10px rgb(37, 36, 36);
   display: flex;
   flex-direction: column;
