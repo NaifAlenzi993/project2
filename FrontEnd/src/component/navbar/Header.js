@@ -24,18 +24,21 @@ export class Header extends Component {
                     <Navbar.Toggle/>
                     <Navbar.Collapse className="justify-content-end">
 
-                    <Nav>
-                    <NavDropdown title = "الأقسام">
+                    <Nav> 
+                    <NavDropdown id='NavDropown' title = "الأقسام">
                         <NavDropdown.Item > <Link id="item" to="/Cars"> قسم السيارات</Link></NavDropdown.Item>
                         <NavDropdown.Item> <Link id="item" to="/Parts"> قسم الاكسسوارات</Link> </NavDropdown.Item>
                         <NavDropdown.Item> <Link id="item" to="/mainten"> قسم الصيانة</Link></NavDropdown.Item>
                     </NavDropdown>
                     
-                    <Nav.Link> <Link id='navLink' to="/Home">Home</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/search">Search</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/Bookmark">Bookmark</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/Home">Login</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/login">LOGIN</Link> </Nav.Link>
+                    <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link>
                     </Nav>
+
+              
 
                     </Navbar.Collapse>
 

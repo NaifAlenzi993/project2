@@ -11,13 +11,27 @@
     #item {
         text-decoration: none;
         color: rgb(48, 47, 48);
+        border-bottom: 1px solid black;
     }
-  
+  #NavDropown{
+      border: 1px solid black;
+      position: relative;
+      padding-right: 20px;
+      padding-left: 20px;
+     
+  }
+
     
 #navLink{
     text-decoration: none;
     font-weight: bold;
     translate: 5s;    
+}
+
+#navLink:link {
+    text-decoration: none;
+    color: white;
+    /* color: rgb(48, 47, 48); */
 }
 
 #welcome{

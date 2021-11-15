@@ -16,6 +16,7 @@ import mainten from "./component/maintenance/maintenance"
 import Select from './component/cars/Select';
 import Search from './component/search/Search';
 import Bookmark from './component/bookmark/Bookmark';
+import Login from './component/registry/Login';
 
 
 
@@ -51,6 +52,10 @@ function App() {
                   <Route path="/mainten" component={mainten} />
                   <Route path="/car/:id" exact component={Select} />
                   <Route path="/bookmark" exact component={Bookmark} />
+                  <Route path="/login" exact component={Login} />
+                  
+
+
 
                   
                </div>
