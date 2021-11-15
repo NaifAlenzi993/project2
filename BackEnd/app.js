@@ -16,15 +16,24 @@ const imgCar = [
   "https://s.car.info/image_files/360/0-817755.jpg"
 ]
 
+const carVid = [
+  "https://www.youtube.com/embed/rDUBW5x5UKM",
+  "https://www.youtube.com/embed/PDhAwElOUcw",
+  "https://www.youtube.com/embed/qmdzlPmbyxg",
+  "https://www.youtube.com/embed/TqON3x6JyKk",
+  "https://www.youtube.com/embed/TlPCn54Lh6Y",
+  "https://www.youtube.com/embed/rDUBW5x5UKM",
+]
+
 
 
 let Prodects = { cars: [
-                        {id: 1 , name:"Chevrolet Silverado 2020" , url:imgCar[0] , info:"" , price:50000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 2 , name:"GMC Yukon 2021" , url:imgCar[1] , info:"" , price:68000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 3 , name:"Chevrolet Traverse 2020" , url:imgCar[2] , info:"" , price:42000 , type: "larg" , comments: [] , like:"black"} ,
-                        {id: 4 , name:"GMC Acadia 2021" , url:imgCar[3] , info:"" , price:41000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 5 , name:"Chevrolet Tahoe 2021" , url:imgCar[4] , info:"" , price:54000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , info:"" , price:57000 , type:"larg" , comments: [], like:"black"}] , } 
+                        {id: 1 , name:"Chevrolet Silverado 2020" , url:imgCar[0] , vid:carVid[0] , info:"" , price:50000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 2 , name:"GMC Yukon 2021" , url:imgCar[1] ,vid:carVid[1] , info:"" , price:68000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 3 , name:"Chevrolet Traverse 2020" , url:imgCar[2] , vid:carVid[2] ,info:"" , price:42000 , type: "larg" , comments: [] , like:"black"} ,
+                        {id: 4 , name:"GMC Acadia 2021" , url:imgCar[3] , vid:carVid[3] ,info:"" , price:41000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 5 , name:"Chevrolet Tahoe 2021" , url:imgCar[4] , vid:carVid[4] ,info:"" , price:54000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , vid:carVid[5] ,info:"" , price:57000 , type:"larg" , comments: [], like:"black"}] , } 
 
 
 const users = [
