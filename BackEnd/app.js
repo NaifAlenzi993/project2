@@ -59,13 +59,13 @@ app.post("/like/:id" , (req , res) => {
   if (len == 0){
     Likes.push(Prodects.cars[id-1])
     Prodects.cars[id-1].like = "red"
+    res.json(Prodects); 
   }else{
     Prodects.cars[id-1].like = "black"
-    res.json("1");
+    res.json("-1"); 
   }
   
 })
-
 
 app.get("/like", (req, res) => {
   res.status(200);
