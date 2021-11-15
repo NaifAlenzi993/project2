@@ -25,6 +25,7 @@ import Profile from './component/Profile/Profile';
 
 function App() {
     const [prodects, setProdects] = useState({})
+    
 
     useEffect(() => {
         axios.get('http://localhost:5000/prodects')
