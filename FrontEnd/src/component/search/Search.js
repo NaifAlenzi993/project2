@@ -71,7 +71,8 @@ export default function Search() {
 
     return (
         <div id='searchDiv'>
-            <input id='inputSearch' type="text" placeholder="  search" onChange={(e)=>{searchFun(e)}}/>
+            
+            <input id='inputSearch' className='form-control' type="text" placeholder="  search" onChange={(e)=>{searchFun(e)}}/>
             
             {carsDisplayOnPage(prodects.cars && findElement(prodects.cars))}
             
