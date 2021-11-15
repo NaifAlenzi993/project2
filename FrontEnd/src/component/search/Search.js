@@ -1,6 +1,8 @@
 import React , {useEffect , useState}from 'react'
 import axios from 'axios'
+import { FaHeart } from 'react-icons/fa';
 import './search.css'
+import {Link} from 'react-router-dom';
 
 export default function Search() {
 
@@ -19,14 +21,32 @@ export default function Search() {
         })
     }, [])
 
+    const likedHandleClick = async (id)=> {
+
+        const response = await axios.post(`http://localhost:5000/like/${id}`, {
+            id: id
+        });
+
+        
+
+        if (response.data == 1) {
+            const response = await axios.delete(`http://localhost:5000/like/${id}`)
+            
+           
+        }
+    }
+
     function carsDisplayOnPage(arr) {
         return <div className= "row" id='items_Cars'>
                     {arr && arr.map((elem , i) => {
                         
                         return <div key={i}  id='car_item'>
-                                    <img id='img_id' src={elem.url} alt="" width={290} height={180}/>
+                            <Link  to={`/car/${elem.id}`}>
+                                <img id='img_id' src={elem.url} alt="" width={290} height={180}/>
+                            </Link>  
+                                
                                 <span>{elem.name}</span>
-                                <div><img src="" alt="" /></div>  
+                                <div  onClick={()=>{likedHandleClick(elem.id)}}><FaHeart id='icon' style={{color:elem.like}} /> <span>{elem.price + " $"} </span> </div>
                             </div>
                     })}
         </div>
@@ -34,7 +54,7 @@ export default function Search() {
 
     function findElement(arr) {
        let arrafilter =  arr.filter((element) => {
-            if (element.name.toLowerCase().includes(findsearch.toLocaleLowerCase()) ) {
+            if (element.name.toLowerCase().includes(findsearch.toLocaleLowerCase()) && findsearch.toLocaleLowerCase().length > 1 ) {
                 return element
             }
         })
@@ -43,8 +63,10 @@ export default function Search() {
     }
     
     const searchFun = (e)=>{
-        setFindsearch(e.target.value)
-        console.log(findElement(prodects.cars));
+    
+            setFindsearch(e.target.value)
+            console.log(findElement(prodects.cars));
+        
     }
 
     return (
