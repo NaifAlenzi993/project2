@@ -1,6 +1,7 @@
 import React , {useEffect , useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import "./select.css"
 
 export default function Select() {
     const [cars, setCars] = useState("")
@@ -20,17 +21,31 @@ export default function Select() {
     return (
         <div>
             <div className="container">
-            
-
-           
-
-
-                <div id="info-car">
-                <img src={cars.url} alt="" /> <br />
-                <span>{cars.name}</span>
-                <br />
-                <span>{cars.price}</span>
+                <div id="div-car">
+                    <div className="imgContainer">
+                    <img className='img-info' src={cars.url} alt="" />
+                    <span>HH</span> 
+                    </div>
+                        
+                            <div className="into-car">
+                                <span>{cars.name}</span>
+                                <span>{cars.price}</span>
+                            </div> 
                 </div>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PDhAwElOUcw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <div className="replay">
+                    <div className="comments">
+
+                    </div>
+                    <div className="input-btn">
+
+                    <input type="text" className='form-control' placeholder='Write Comment Here'/>
+                    <button className='btn btn-primary'>Add Comment</button>
+                    </div>
+                </div>
+                
 
             </div>
         </div>

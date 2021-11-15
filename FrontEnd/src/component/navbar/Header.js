@@ -35,7 +35,7 @@ export class Header extends Component {
                     <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
                     <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
                     <Nav.Link> <Link id='navLink' to="/login">LOGIN</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link>
+                    {/* <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link> */}
                     <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
                     </Nav>
 

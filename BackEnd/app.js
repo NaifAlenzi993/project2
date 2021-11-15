@@ -7,13 +7,24 @@ app.use(express.json());
 app.use(cors());
 const port = 5000;
 
+const imgCar = [
+  "https://s.car.info/image_files/360/0-817877.jpg" , 
+  "https://s.car.info/image_files/360/0-852615.jpg" , 
+  "https://s.car.info/image_files/360/0-867912.jpg" ,
+  "https://s.car.info/image_files/360/gmc-acadia-front-side-0-336319.jpg",
+  "https://s.car.info/image_files/360/0-845025.jpg",
+  "https://s.car.info/image_files/360/0-817755.jpg"
+]
+
+
+
 let Prodects = { cars: [
-                        {id: 1 , name:"Chevrolet Silverado 2020" , url:"https://s.car.info/image_files/360/0-817877.jpg" , info:"" , price:50000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 2 , name:"GMC Yukon 2021" , url:"https://s.car.info/image_files/360/0-852615.jpg" , info:"" , price:68000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 3 , name:"Chevrolet Traverse 2020" , url:"https://s.car.info/image_files/360/0-867912.jpg" , info:"" , price:42000 , type: "larg" , comments: [] , like:"black"} ,
-                        {id: 4 , name:"GMC Acadia 2021" , url:"https://s.car.info/image_files/360/gmc-acadia-front-side-0-336319.jpg" , info:"" , price:41000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 5 , name:"Chevrolet Tahoe 2021" , url:"https://s.car.info/image_files/360/0-845025.jpg" , info:"" , price:54000 , type: "larg" , comments: [] , like:"black"} , 
-                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:"https://s.car.info/image_files/360/0-817755.jpg" , info:"" , price:57000 , type:"larg" , comments: [], like:"black"}] , } 
+                        {id: 1 , name:"Chevrolet Silverado 2020" , url:imgCar[0] , info:"" , price:50000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 2 , name:"GMC Yukon 2021" , url:imgCar[1] , info:"" , price:68000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 3 , name:"Chevrolet Traverse 2020" , url:imgCar[2] , info:"" , price:42000 , type: "larg" , comments: [] , like:"black"} ,
+                        {id: 4 , name:"GMC Acadia 2021" , url:imgCar[3] , info:"" , price:41000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 5 , name:"Chevrolet Tahoe 2021" , url:imgCar[4] , info:"" , price:54000 , type: "larg" , comments: [] , like:"black"} , 
+                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , info:"" , price:57000 , type:"larg" , comments: [], like:"black"}] , } 
 
 
 const users = [
@@ -43,7 +54,7 @@ app.post("/like/:id" , (req , res) => {
   let id = req.params.id
   let len = Likes.filter((element , i) => {
     return element.id == id
-  })
+  }).length
 
   if (len == 0){
     Likes.push(Prodects.cars[id-1])

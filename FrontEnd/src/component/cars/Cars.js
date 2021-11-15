@@ -14,7 +14,7 @@ export default function Cars() {
 
     const [changeLikeColor, setChangeLikeColor] = useState(false)
 
-   
+
 
     useEffect(() => {
         axios.get('http://localhost:5000/prodects')
@@ -27,7 +27,7 @@ export default function Cars() {
         })
         }, [changeLikeColor])
 
-        const likedHandleClick = async (id)=> {
+        const likedHandleClick = async (id) => {
         const response = await axios.post(`http://localhost:5000/like/${id}`, {
             id: id
         });
