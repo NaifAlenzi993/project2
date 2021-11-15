@@ -27,16 +27,16 @@ function App() {
     const [prodects, setProdects] = useState({})
     
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/prodects')
-        .then(res =>{
-          console.log(res.data)
-          setProdects(res.data)
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }, [])
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/prodects')
+    //     .then(res =>{
+    //       console.log("from App" ,res.data)
+    //       setProdects(res.data)
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     })
+    // }, [])
 
 
   return (

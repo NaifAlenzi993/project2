@@ -17,7 +17,8 @@ export default function Cars() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/prodects')
+       const get = async () => {
+        await axios.get('http://localhost:5000/prodects')
         .then(res =>{
           console.log("cars",res.data.cars)
           setCars(res.data)
@@ -25,19 +26,35 @@ export default function Cars() {
         .catch(err => {
           console.log(err);
         })
-        }, [changeLikeColor])
+        }
 
-        const likedHandleClick = async (id) => {
-        const response = await axios.post(`http://localhost:5000/like/${id}`, {
+        get()
+        
+        }, [])
+
+    const likedHandleClick = async (id) => {
+        let response = await axios.post(`http://localhost:5000/like/${id}`, {
             id: id
         });
  
-        if (response.data == 1) {
-            const response = await axios.delete(`http://localhost:5000/like/${id}`)
-            console.log(response.data);
+        if (response.data == "-1") {
+            response = await axios.delete(`http://localhost:5000/like/${id}`)
+            console.log('delete' , response.data);
+        }else{
+            setCars(response.data)
         }
     }
 
+
+    function toggleColor(id){
+        const arrCopy = {...cars}
+        if (arrCopy.cars[id-1].like == "black"){
+            arrCopy.cars[id-1].like = "red"
+        }else{
+            arrCopy.cars[id-1].like = "black"
+        }
+        setCars(arrCopy)
+    }
 
 
     function carsDisplayOnPage(arr) {
@@ -48,7 +65,7 @@ export default function Cars() {
                                 <img id='img_id' src={elem.url} alt="" width={290} height={180}/>
                             </Link>  
                                 <span>{elem.name}</span>
-                                <div id='handle'  onClick={()=>{likedHandleClick(elem.id);setChangeLikeColor(!changeLikeColor)}}><span>{elem.price + " $"} </span><FaHeart id='icon' style={{color:elem.like}} /> </div>
+                                <div id='handle'  onClick={()=>{likedHandleClick(elem.id);toggleColor(elem.id)}}><span>{elem.price + " $"} </span><FaHeart id='icon' style={{color:elem.like}} /> </div>
                             </div>
                     })}
         </div>
