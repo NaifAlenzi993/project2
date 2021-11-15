@@ -1,3 +1,10 @@
+body {
+    background-image: url("./cars.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+
+}
+
 #navLink:hover{
     border-bottom: 2px solid rgb(169, 3, 3);
     border-end-start-radius: 5px;

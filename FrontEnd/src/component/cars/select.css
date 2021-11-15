@@ -1,0 +1,52 @@
+
+
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+ #div-car{
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        margin-top: 20px;
+        width: 85%;
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgba(255, 255, 255, 0.733);
+    }
+
+    .replay{
+        width: 85%;
+        margin: auto;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.733);
+    }
+
+    .comments{
+        width: 500px;
+        height: 50px;
+        margin: auto;
+    }
+
+    
+    .replay input{
+        width: 400px;
+        height: 80px;
+        margin: auto;
+        margin-bottom: 5px;
+    }
+
+    .replay button{
+        width: 150px;
+        margin: auto;
+        display: flex;
+        justify-self: center;
+    }
+
+.img-info{
+    width: 20rem;
+}
