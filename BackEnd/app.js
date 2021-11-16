@@ -80,6 +80,18 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
+app.post("/login", (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+  for(let i =0 ; users.length; i++){
+    if(users[i].email == email && users[i].password == password){
+      res.json("true")
+    }
+  }
+  res.status(200);
+  res.json("wrong");
+});
+
 app.get("/prodects", (req, res) => {
   res.status(200);
   res.json(Prodects);
@@ -156,6 +168,7 @@ app.get("/part/:id", (req, res) => {
   res.json(Prodects.parts[id-1]);
 
 });
+
 
 
 
