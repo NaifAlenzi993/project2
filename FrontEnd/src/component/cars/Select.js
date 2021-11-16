@@ -8,12 +8,13 @@ import { FaStar } from 'react-icons/fa';
 export default function Select() {
     const [cars, setCars] = useState("")
     const { id }= useParams()
-    const [inputComment, setInputComment] = useState("")
+    const [inputComment, setInputComment] = useState([])
+    const [comments, setComments] = useState([])
     
     useEffect(() => {
         axios.get('http://localhost:5000/car/' + id)
         .then(res =>{
-          console.log("car-id",res.data)
+          console.log("comments",res.data)
           setCars(res.data)
         })
         .catch(err => {
@@ -21,8 +22,24 @@ export default function Select() {
         })
     }, [])
 
-    const AddComent = async (comment) => {
+    const AddComent = async (comment , id) => {
         
+        let response = await axios.post(`http://localhost:5000/comment/`, {
+            id: id , 
+            comment: comment
+        });
+        // setComments(response.data)
+
+        const copyObj = {...cars}
+        copyObj.comments.push(comment)
+        setComments(copyObj)
+        
+        
+    }
+
+
+    function inputOnChange(e) {
+      setInputComment(e.target.value)
     }
 
     return (
@@ -48,16 +65,28 @@ export default function Select() {
                 <iframe id="video-YT" width="560" height="315" src={cars.vid} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 <div className="replay">
-                    <div className="comments">
 
+                <div className="comments">
+                     
+                     {cars.comments && cars.comments.map((elem) => {
+                         return <div id='coment-show'>
+                             <div className='img-comment'>
 
+                             </div>
+                             <div id='comment-span'>
+                                  <span>{elem}</span>
+                             </div>
+                            </div>
+                     })}
+                 
+             </div>
 
-                    </div>
                     <div className="input-btn">
 
-                    <input onChange={(e)=>{setInputComment(e.target.value)}} type="text" className='form-control' placeholder='Write Comment Here'/>
-                    <button onClick={()=>{AddComent(inputComment)}} className='btn btn-primary'>Add Comment</button>
+                    <input onChange={(e)=>{inputOnChange(e)}} type="text" className='form-control' placeholder='Write Comment Here'/>
+                    <button onClick={()=>{AddComent(inputComment , cars.id)}} className='btn btn-primary'>Add Comment</button>
                     </div>
+                    
                 </div>
                 
 

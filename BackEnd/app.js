@@ -125,12 +125,26 @@ app.delete("/like/:id" , (req , res) => {
   // res.json(Likes);
 });
 
+app.post("/comment/" , (req , res) => {
+ let obj = req.body
+ Prodects.cars.forEach((element , i) => {
+   if (obj.id == element.id){
+    Prodects.cars[i].comments.push(obj.comment)
+    console.log(Prodects.cars[i].comments);
+   }
+ });
+ res.status(200);
+ res.json(Prodects.cars[obj.id-1].comments);
+ 
+});
+
+
+
 app.get("/car/:id", (req, res) => {
   let id = req.params.id
   console.log(Prodects.cars[id-1].name);
    res.status(200);
   res.json(Prodects.cars[id-1]);
-
 });
 
 
