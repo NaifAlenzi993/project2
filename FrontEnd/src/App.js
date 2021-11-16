@@ -25,26 +25,29 @@ import Profile from './component/Profile/Profile';
 
 
 function App() {
-    const [prodects, setProdects] = useState({})
+    const [prodects, setProdects] = useState("Active")
+
+    const [userActive, setUserActive] = useState("user")
+   
     
 
-    // useEffect(() => {
-    //     axios.get('http://localhost:5000/prodects')
-    //     .then(res =>{
-    //       console.log("from App" ,res.data)
-    //       setProdects(res.data)
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     })
-    // }, [])
+    useEffect(() => {
+        axios.get('http://localhost:5000/login')
+        .then(res =>{
+          console.log("from App" ,res.data)
+          setProdects(res.data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }, [])
 
 
   return (
     <>
       <BrowserRouter>
                <div>
-                  <Header />
+                  <Header user = {userActive}  />
                   <Route exact={true} path="/" component={Home} />
                   <Route path="/Home" component={Home} />
                   <Route path="/Cars" render = {() => (

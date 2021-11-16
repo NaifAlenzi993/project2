@@ -34,7 +34,6 @@ export default function Select() {
         copyObj.comments.push(comment)
         setComments(copyObj)
         
-        
     }
 
 
