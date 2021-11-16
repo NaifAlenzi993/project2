@@ -1,11 +1,14 @@
 import React , {useEffect , useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import "./select.css"
+import "./select.css";
+import { FaStar } from 'react-icons/fa';
+
 
 export default function Select() {
     const [cars, setCars] = useState("")
     const { id }= useParams()
+    const [inputComment, setInputComment] = useState("")
     
     useEffect(() => {
         axios.get('http://localhost:5000/car/' + id)
@@ -18,18 +21,27 @@ export default function Select() {
         })
     }, [])
 
+    const AddComent = async (comment) => {
+        
+    }
+
     return (
         <div>
             <div className="container">
                 <div id="div-car">
                     <div className="imgContainer">
                     <img className='img-info' src={cars.url} alt="" />
-                    <span>HH</span> 
                     </div>
                         
                             <div className="into-car">
-                                <span>{cars.name}</span>
-                                <span>{cars.price}</span>
+                                <span><b>Name&Model :  </b> {cars.name}</span>
+                                <span><b>Price :  </b>{cars.price} $</span>
+                                <span><b>Rate :  </b><FaStar style={{color:"gold"}}/>
+                                <FaStar style={{color:"gold"}}/>
+                                <FaStar style={{color:"gold"}}/>
+                                <FaStar style={{color:"gold"}}/>
+                                <FaStar style={{color:"gold"}}/></span>
+
                             </div> 
                 </div>
 
@@ -38,11 +50,13 @@ export default function Select() {
                 <div className="replay">
                     <div className="comments">
 
+
+
                     </div>
                     <div className="input-btn">
 
-                    <input type="text" className='form-control' placeholder='Write Comment Here'/>
-                    <button className='btn btn-primary'>Add Comment</button>
+                    <input onChange={(e)=>{setInputComment(e.target.value)}} type="text" className='form-control' placeholder='Write Comment Here'/>
+                    <button onClick={()=>{AddComent(inputComment)}} className='btn btn-primary'>Add Comment</button>
                     </div>
                 </div>
                 
