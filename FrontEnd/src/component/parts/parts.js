@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaHeart } from 'react-icons/fa';
 import {useParams , Link} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css"
-import "../cars/Cars.css"
+import "./parts.css"
 
 
 
@@ -46,7 +46,17 @@ export default function Cars() {
     }
 
 
-   
+    function shortName(name , count){
+        let nemearrr = name.split(' ')
+        let shrtResult = []
+      nemearrr.forEach((elem , i) => {
+        if (i < count) {
+          shrtResult.push(elem)
+         }
+      })
+    
+      return shrtResult.join(" ")
+    }
 
 
     function carsDisplayOnPage(arr) {
@@ -56,7 +66,7 @@ export default function Cars() {
                             <Link  to={`/part/${elem.id}`}>
                                 <img id='img_id' src={elem.url} alt="" width={290} height={180}/>
                             </Link>  
-                                <span>{elem.name}</span>
+                                <span>{shortName(elem.name,5)}</span>
                                 <div id='handle'  onClick={()=>{likedHandleClick(elem.id);}}><span>{elem.price + " $"} </span><FaHeart id='icon'  /> </div>
                             </div>
                     })}

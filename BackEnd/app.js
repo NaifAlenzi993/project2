@@ -53,7 +53,7 @@ let Prodects = { cars: [
     {id:1,  name:"New Front Grille For 2007-2014 GMC Yukon With Denali Package, Chrome GM1200610" , url:partsImg[0] , price:201},
     {id:2,  name:"18x8.5-Inch Aluminum Multi-Spoke Wheel in High Gloss Black" , url:partsImg[1] , price:520},
     {id:3,  name:"Rear-Seat Infotainment System with DVD Player in Jet Black Cloth" , url:partsImg[2] , price:1950},
-    {id:4,  name:"https://ecom-dam.ext.gm.com/parts/images/19_GMC_SIE_BAR_01.jpg/640X640" , url:partsImg[3] , price:990},
+    {id:4,  name:"" , url:partsImg[3] , price:990},
     {id:5,  name:"CAMARO Z/28 ENGINEERS GET A GRIP ON WHEEL SLIP" , url:partsImg[4] , price:620},
     {id:6,  name:"Chevrolet Door Handle Decal Sticker logo Silverado Truck logo impala SS Set of 4" , url:partsImg[5] , price:20},
     
