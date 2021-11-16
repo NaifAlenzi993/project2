@@ -4,15 +4,13 @@ import "./Header.css"
 import {Navbar , Nav , NavDropdown } from 'react-bootstrap'
 import logo from './logo.png'
 
-export class Header extends Component {
-    render() {
-    
-//Bootstrap Color : .text-primary  , .text-secondary , .text-success , .text-danger
-// .text-warning , .text-info , .text-light , .text-dark , .text-muted , .text-white
+export default function Header({user}) {
 
+    console.log(user);
 
-        return (
-            <div>
+    return (
+        <div>
+            
                 <Navbar collapseOnSelect bg ="dark" variant = "dark"
                    sticky="top" expand = "lg">
                     
@@ -47,13 +45,19 @@ export class Header extends Component {
                    
 
             </div>
-        )
-    }
+    )
+
+
 }
 
-export default Header
 
 
+    
+//Bootstrap Color : .text-primary  , .text-secondary , .text-success , .text-danger
+// .text-warning , .text-info , .text-light , .text-dark , .text-muted , .text-white
+
+
+ 
 
              
                 //     <NavDropdown title = "حسابي">

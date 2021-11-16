@@ -1,10 +1,10 @@
-import React , {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import "./style.css"
 
-export default function login() {
-    // const [user, setuser] = useState({name:"" , email:""})
+export default function Login() {
 
-
+  
+    const [userName, setuserName] = useState("")
 
     // handleChange = (e) =>{
     //     const {name,value} = e.target
@@ -19,7 +19,7 @@ export default function login() {
                             <h3>LOGIN IN</h3>
                             <input type="text" className='form-control' placeholder='UserName'/>
                             <input type="text" className='form-control' placeholder='Password'/>
-                            <button className='btn btn-primary'>LOGIN IN</button>
+                            <button onClick={() => {}} className='btn btn-primary'>LOGIN IN</button>
                </div>
            </div>
         </div>
