@@ -1,0 +1,76 @@
+
+.container{
+    height: 100%;
+}
+
+#handle {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+#icon{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+#icon:hover{
+    font-size: 21px;
+}
+
+#icon:hover{
+    color: black;
+}
+
+
+.listcars{
+    background-color: rgba(46, 42, 42, 0);
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#items_Cars1 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    background-color: rgba(211, 211, 211, 0);
+}
+
+
+#car_item{
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 13px;
+  width: auto;
+  background-color: rgba(255, 255, 250, 0.795);
+  margin: 5px;
+  margin-top: 30px;
+  padding-bottom: 15px;
+  box-shadow: 0px 0px 10px rgb(37, 36, 36);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+#car_item:hover {
+    background-color: rgb(37, 37, 36);
+    color: rgb(255, 253, 253);
+}
+
+
+#img_id {
+    width: 300px; /* You can set the dimensions to whatever you want */
+    height: 160px;
+    object-fit: cover;
+}
+
+#img_id:hover{
+    box-shadow: inset 0px 0px 200px rgb(255, 255, 255);
+}
