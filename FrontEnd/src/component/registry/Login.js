@@ -2,14 +2,14 @@ import React , {useState} from 'react'
 import "./style.css"
 
 export default function login() {
-    const [user, setuser] = useState({name:"" , email:""})
+    // const [user, setuser] = useState({name:"" , email:""})
 
 
 
-    handleChange = (e) =>{
-        const {name,value} = e.target
-        setuser({[name]:value})
-    }
+    // handleChange = (e) =>{
+    //     const {name,value} = e.target
+    //     setuser({[name]:value})
+    // }
 
   
     return (

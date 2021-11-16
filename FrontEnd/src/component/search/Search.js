@@ -23,17 +23,26 @@ export default function Search() {
 
     const likedHandleClick = async (id)=> {
 
-        const response = await axios.post(`http://localhost:5000/like/${id}`, {
+        let response = await axios.post(`http://localhost:5000/like/${id}`, {
             id: id
         });
-
-        
-
-        if (response.data == 1) {
-            const response = await axios.delete(`http://localhost:5000/like/${id}`)
-            
-           
+ 
+        if (response.data == "-1") {
+            response = await axios.delete(`http://localhost:5000/like/${id}`)
+            console.log('delete' , response.data);
+        }else{
+            setProdects(response.data)
         }
+    }
+
+    function toggleColor(id){
+        const arrCopy = {...prodects}
+        if (arrCopy.cars[id-1].like == "black"){
+            arrCopy.cars[id-1].like = "red"
+        }else{
+            arrCopy.cars[id-1].like = "black"
+        }
+        setProdects(arrCopy)
     }
 
     function carsDisplayOnPage(arr) {
@@ -46,7 +55,7 @@ export default function Search() {
                             </Link>  
                                 
                                 <span>{elem.name}</span>
-                                <div  onClick={()=>{likedHandleClick(elem.id)}}><FaHeart id='icon' style={{color:elem.like}} /> <span>{elem.price + " $"} </span> </div>
+                                <div  onClick={()=>{likedHandleClick(elem.id);toggleColor(elem.id)}}><FaHeart id='icon' style={{color:elem.like}} /> <span>{elem.price + " $"} </span> </div>
                             </div>
                     })}
         </div>
