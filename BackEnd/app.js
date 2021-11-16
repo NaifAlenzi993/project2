@@ -25,6 +25,18 @@ const carVid = [
   "https://www.youtube.com/embed/rDUBW5x5UKM",
 ]
 
+const partsImg = [
+  "https://m.media-amazon.com/images/I/41GqD1Zo8UL._SS400_.jpg",
+  "https://ecom-dam.ext.gm.com/parts/images/20_GMC_SIE_SE5_18W_01.jpg/640X640",
+  "https://ecom-dam.ext.gm.com/parts/images/19_CHE_SIL_DVD_10.jpg/640X640",
+  "https://ecom-dam.ext.gm.com/parts/images/19_GMC_SIE_BAR_01.jpg/640X640",
+  "https://media.chevrolet.com/content/Pages/news/ca/en/2014/Mar/0314_CamaroZ28/_jcr_content/rightpar/imagewithmodal/image.resize.maxw_276.jpg/1393266503756.jpg",
+  "https://i.ebayimg.com/images/g/LkYAAOSwgmJXxPYP/s-l300.jpg"
+  
+
+]
+
+
 
 
 let Prodects = { cars: [
@@ -33,7 +45,21 @@ let Prodects = { cars: [
                         {id: 3 , name:"Chevrolet Traverse 2020" , url:imgCar[2] , vid:carVid[2] ,info:"" , price:42000 , type: "larg" , comments: [] , like:"black" , rate: 3} ,
                         {id: 4 , name:"GMC Acadia 2021" , url:imgCar[3] , vid:carVid[3] ,info:"" , price:41000 , type: "larg" , comments: [] , like:"black" ,  rate: 4} , 
                         {id: 5 , name:"Chevrolet Tahoe 2021" , url:imgCar[4] , vid:carVid[4] ,info:"" , price:54000 , type: "larg" , comments: [] , like:"black" ,  rate: 5} , 
-                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , vid:carVid[5] ,info:"" , price:57000 , type:"larg" , comments: [], like:"black" ,  rate: 3}] , } 
+                        {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , vid:carVid[5] ,info:"" , price:57000 , type:"larg" , comments: [], like:"black" ,  rate: 3}] ,
+                      
+                      
+                        
+  parts:[
+    {id:1,  name:"New Front Grille For 2007-2014 GMC Yukon With Denali Package, Chrome GM1200610" , url:partsImg[0] , price:201},
+    {id:2,  name:"18x8.5-Inch Aluminum Multi-Spoke Wheel in High Gloss Black" , url:partsImg[1] , price:520},
+    {id:3,  name:"Rear-Seat Infotainment System with DVD Player in Jet Black Cloth" , url:partsImg[2] , price:1950},
+    {id:4,  name:"https://ecom-dam.ext.gm.com/parts/images/19_GMC_SIE_BAR_01.jpg/640X640" , url:partsImg[3] , price:990},
+    {id:5,  name:"CAMARO Z/28 ENGINEERS GET A GRIP ON WHEEL SLIP" , url:partsImg[4] , price:620},
+    {id:6,  name:"Chevrolet Door Handle Decal Sticker logo Silverado Truck logo impala SS Set of 4" , url:partsImg[5] , price:20},
+    
+  ]
+
+                      } 
 
 
 const users = [
@@ -106,6 +132,20 @@ app.get("/car/:id", (req, res) => {
   res.json(Prodects.cars[id-1]);
 
 });
+
+
+
+app.get("/part/:id", (req, res) => {
+  let id = req.params.id
+  console.log(Prodects.parts[id-1].name);
+   res.status(200);
+  res.json(Prodects.parts[id-1]);
+
+});
+
+
+
+
 
 
 app.listen(port, () => {

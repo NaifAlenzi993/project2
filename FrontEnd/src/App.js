@@ -14,6 +14,7 @@ import mainten from "./component/maintenance/maintenance"
 
 //اقسام فرعية
 import Select from './component/cars/Select';
+import SelectParts from './component/parts/SelectParts'
 import Search from './component/search/Search';
 import Bookmark from './component/bookmark/Bookmark';
 import Login from './component/registry/Login';
@@ -53,6 +54,7 @@ function App() {
                   <Route path="/Parts" component={Parts} />
                   <Route path="/mainten" component={mainten} />
                   <Route path="/car/:id" exact component={Select} />
+                  <Route path="/part/:id" exact component={SelectParts} />
                   <Route path="/bookmark" exact component={Bookmark} />
                   <Route path="/login" exact component={Login} />
                   <Route path="/profile" exact component={Profile} />
