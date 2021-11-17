@@ -66,8 +66,10 @@ imgProfile = [
 ]
 
 const users = [
-  {id:1 , name:"mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:imgProfile[0],state:false},
-  {id:2 , name:"naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false}
+  {id:1 , name:"mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:imgProfile[0],state:false , message:[]},
+  {id:2 , name:"naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[]},
+  {id:3 , name:"hiji" , email:"hiji@hiji.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[]},
+
 ]
 
 
@@ -78,10 +80,41 @@ app.get("/", (req, res) => {
   res.json("hello app");
 });
 
+
 app.get("/users", (req, res) => {
+  const user = req.body;
+  const members = users.filter((elem , i )=>{
+    return elem.state == false
+    
+  })
+  console.log(members);
   res.status(200);
-  res.json(users);
+  res.json(members);
 });
+
+app.get("/profile", (req, res) => {
+  const user = req.body;
+  const members = users.filter((elem , i )=>{
+    return elem.state == true
+    
+  })
+  console.log(members);
+  res.status(200);
+  res.json(members);
+});
+
+app.post("/message/" , (req , res) => {
+  let obj = req.body 
+  users.forEach((element , i) => {
+    if (obj.id == element.id){
+      users[i].message.push(obj.message)
+     console.log(users[i].message);
+    }
+  });
+  res.status(200);
+  res.json(users[obj.id-1].message);
+  
+ });
 
 
 // logout 

@@ -19,6 +19,7 @@ import Search from './component/search/Search';
 import Bookmark from './component/bookmark/Bookmark';
 import Login from './component/registry/Login';
 import Profile from './component/Profile/Profile';
+import Members from './component/Profile/Members';
 
 
 
@@ -70,6 +71,7 @@ function App() {
                   <Route path="/bookmark" exact component={Bookmark} />
                   {/* <Route path="/login" exact component={Login} /> */}
                   <Route path="/profile" exact component={Profile} />
+                  <Route path="/members" exact component={Members} />
                 
                   <Route path="/login" render = {() => (
                     <Login changeUser = {x =>setUserOnline(x)}></Login>
