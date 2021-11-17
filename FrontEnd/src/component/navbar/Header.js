@@ -39,7 +39,7 @@ console.log("user",user );
         <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
-        <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
+        
         <Nav.Link> <Link id='navLink' to="/members">MEMBERS</Link> </Nav.Link>
         <br></br>
         <NavDropdown id='NavDropown' title = "ACCOUNT">
@@ -56,7 +56,7 @@ console.log("user",user );
         <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
-        <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
+       
         {/* <Nav.Link> <Link id='navLink' to="/admin">Admin</Link> </Nav.Link> */}
         <Nav.Link> <Link id='navLink' to="/members">MEMBERS</Link> </Nav.Link>
         {/* <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link> <br></br> */}
