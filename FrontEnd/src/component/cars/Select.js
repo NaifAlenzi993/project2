@@ -20,7 +20,7 @@ export default function Select({user}) {
         .catch(err => {
           console.log(err);
         })
-    }, [])
+    }, [cars])
 
     const AddComent = async (comment , id) => {
         
@@ -38,7 +38,7 @@ export default function Select({user}) {
 
         setCars(copyObj)
 
-        console.log("comWithName" , copyObj.comments);
+        console.log("comWithName" , cars);
         
     }
 
@@ -74,16 +74,16 @@ export default function Select({user}) {
                 <div className="comments">
                      
                      {cars.comments && cars.comments.map((elem) => {
-                         return <div id='coment-show'>
-                             <div className='img-comment'>
+                        return <div id='coment-show'>
+                            <div className='img-comment'>
 
-                             </div>
-                             <div id='comment-span'>
-                             
-                                <h4>{elem.name}</h4>
-                                  <span>{elem.comment}</span>
-                             </div>
                             </div>
+                            <div id='comment-span'>
+                            
+                                <h4>{elem.name}</h4>
+                                <span>{elem.comment}</span>
+                             </div>
+                        </div>
                      })}
                  
              </div>
