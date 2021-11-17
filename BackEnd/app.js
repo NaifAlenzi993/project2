@@ -126,6 +126,8 @@ app.delete("/logout/:id", (req, res) => {
       elem.state = false
     }
   })
+  res.status(200);
+  res.json("done");
 });
 
 //check if Account Login 
