@@ -60,13 +60,16 @@ let Prodects = { cars: [
   ]
 
                       } 
-
+imgProfile = [
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB8OMuPIqaW0B7IGlseraXzyJM_-h797mqmA&usqp=CAU",
+  "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+]
 
 const users = [
-  {id:1 , name:"Mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB8OMuPIqaW0B7IGlseraXzyJM_-h797mqmA&usqp=CAU"},
-  {id:2 , name:"Naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:"https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"}
-
+  {id:1 , name:"mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:imgProfile[0],state:false},
+  {id:2 , name:"naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false}
 ]
+
 
 const Likes = []
 
@@ -80,17 +83,62 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
-app.post("/login", (req, res) => {
-  const email = req.body.email
-  const password = req.body.password
-  for(let i =0 ; users.length; i++){
-    if(users[i].email == email && users[i].password == password){
-      res.json("true")
+
+// logout 
+app.delete("/logout/:id", (req, res) => {
+  let state = false
+  console.log(req.params.id);
+  users.forEach((elem)=>{
+    if (elem.id == req.params.id){
+      elem.state = false
     }
+  })
+});
+
+//check if Account Login 
+app.get("/login", (req, res) => {
+  let state = false
+  users.forEach(elem => {
+    if (elem.state == true){
+      res.status(200);
+      res.json({id:elem.id , name:elem.name , type:elem.type , url:elem.url});
+      state = true
+    }
+  })
+  if (state == false){
+    res.status(200);
+    res.json("-1");
   }
+ 
+});
+
+
+// login pass name + password from client and & check if found Mail & Password 
+app.post("/login", (req, res) => {
+  const name = req.body.name
+  const password = req.body.password
+
+  let isTrue = false
+  users.forEach(element => {
+    if (element.name == name && element.password == password){
+        res.status(200);
+        res.json({id:element.id , name: element.name,type: element.type})
+        element.state = true
+        isTrue = true
+    }
+  });
+
+
+
+
+// if not found name & pass in Array
+if (isTrue == false) { 
   res.status(200);
   res.json("wrong");
+}
+  
 });
+
 
 app.get("/prodects", (req, res) => {
   res.status(200);

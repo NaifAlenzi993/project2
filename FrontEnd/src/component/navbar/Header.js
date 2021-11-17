@@ -3,10 +3,70 @@ import {Link} from 'react-router-dom';
 import "./Header.css"
 import {Navbar , Nav , NavDropdown } from 'react-bootstrap'
 import logo from './logo.png'
+import axios from 'axios';
 
-export default function Header({user}) {
+export default function Header({user , changeUser}) {
 
-    console.log(user);
+   
+
+    
+
+    const onClickLogOut = async () => {
+
+        console.log("from onClick logout",user.id , user.name);
+       
+        const response = await axios.delete(`http://localhost:5000/logout/${user.id}`);
+
+        changeUser({type: "guest"});
+   
+    }
+  
+
+    const guestNav = ()=> {
+        return <>
+        <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/login">LOGIN</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link> <br></br>
+    </>
+    }
+
+    const userNav = ()=> {
+        return <>
+        <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
+        <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link>
+        <br></br>
+        <h4 style={{color:"white"}}>{"Login " + user.name}</h4>
+    </>
+    }
+
+    const adminNav = ()=> {
+        return <>
+        <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
+        <Nav.Link> <Link id='navLink' to="/admin">Admin</Link> </Nav.Link>
+        <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link> <br></br>
+        <h4 style={{color:"white"}}>{"Login " + user.name}</h4>
+
+    </>
+    }
+
+    function checkNavAccount(){
+        if (user.type == "guest"){
+            return guestNav()
+        }else if (user.type == "User"){
+            return userNav()
+        }else if(user.type == "Admin"){
+            return adminNav()
+        }
+    }
+    
 
     return (
         <div>
@@ -28,13 +88,18 @@ export default function Header({user}) {
                         <NavDropdown.Item> <Link id="item" to="/Parts">ACCESSORY</Link> </NavDropdown.Item>
                         <NavDropdown.Item> <Link id="item" to="/mainten">SERVICE</Link></NavDropdown.Item>
                     </NavDropdown>
+
+                    {
+                        
+                        checkNavAccount()
                     
-                    <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
-                    <Nav.Link> <Link id='navLink' to="/login">LOGIN</Link> </Nav.Link>
+                    }
+                    
+                   
+                    
                     {/* <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link> */}
-                    <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
+                    
+                    
                     </Nav>
 
               
