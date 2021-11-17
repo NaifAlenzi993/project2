@@ -100,7 +100,7 @@ console.log("user",user );
                     <NavDropdown id='NavDropown' title = "CATEGORIES">
                         <NavDropdown.Item > <Link id="item" to="/Cars">CARS</Link></NavDropdown.Item>
                         <NavDropdown.Item> <Link id="item" to="/Parts">ACCESSORY</Link> </NavDropdown.Item>
-                        <NavDropdown.Item> <Link id="item" to="/mainten">SERVICE</Link></NavDropdown.Item>
+                        <NavDropdown.Item> <Link id="item" to="/mainten">ABOUT</Link></NavDropdown.Item>
                     </NavDropdown>
 
                     {
