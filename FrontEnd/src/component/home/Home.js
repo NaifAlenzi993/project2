@@ -18,7 +18,7 @@ export class Parent extends Component {
                         <div id="info">Welcome to the world of cars. On this site, we offer many cars and car accessories. We provide maintenance for you.</div>
                         <Link id="cars" to="/Cars"><div >CARS</div></Link>
                         <Link id="parts" to="/Parts"> <div >ACCESSORY</div></Link>
-                        <Link id="mainte" to="/mainten"><div >SERVICE</div></Link>
+                        <Link id="mainte" to="/mainten"><div >ABOUT</div></Link>
                     </div>
                 </div>
                
