@@ -36,7 +36,7 @@ export default function Select({user}) {
         copyObj.comments.push(response.data)
         setComments(copyObj)
 
-        setCars(copyObj)
+        // setCars(copyObj)
 
         console.log("comWithName" , cars);
         

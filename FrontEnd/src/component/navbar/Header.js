@@ -57,16 +57,16 @@ console.log("user",user );
         <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/profile">PROFILE</Link> </Nav.Link>
-        <Nav.Link> <Link id='navLink' to="/admin">Admin</Link> </Nav.Link>
+        {/* <Nav.Link> <Link id='navLink' to="/admin">Admin</Link> </Nav.Link> */}
         <Nav.Link> <Link id='navLink' to="/members">MEMBERS</Link> </Nav.Link>
-        <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link> <br></br>
+        {/* <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link> <br></br> */}
         <NavDropdown id='NavDropown' title = "ACCOUNT">
                         <NavDropdown.Item > <Link id='navLink' to="/profile">PROFILE</Link></NavDropdown.Item>
                         <NavDropdown.Item> <Link id='navLink' to="/admin">Admin</Link></NavDropdown.Item>
                         <NavDropdown.Item> <Link onClick={() => {onClickLogOut()}} id='navLink' to="/Home">LOGOUT</Link></NavDropdown.Item>
                        
                     </NavDropdown>
-        <h4 style={{color:"white"}}>{"Welcome " + user.name}</h4>
+        <h4 style={{color:"white" , padding: "5px"}}>{"Welcome " + user.name}</h4>
 
     </>
     }
