@@ -5,7 +5,7 @@ import "./select.css";
 import { FaStar } from 'react-icons/fa';
 
 
-export default function Select() {
+export default function Select({user}) {
     const [cars, setCars] = useState("")
     const { id }= useParams()
     const [inputComment, setInputComment] = useState([])
@@ -26,13 +26,19 @@ export default function Select() {
         
         let response = await axios.post(`http://localhost:5000/comment/`, {
             id: id , 
+            name: user.name,
             comment: comment
         });
-        // setComments(response.data)
+        // console.log();
 
         const copyObj = {...cars}
-        copyObj.comments.push(comment)
+        
+        copyObj.comments.push(response.data)
         setComments(copyObj)
+
+        setCars(copyObj)
+
+        console.log("comWithName" , copyObj.comments);
         
     }
 
@@ -73,7 +79,9 @@ export default function Select() {
 
                              </div>
                              <div id='comment-span'>
-                                  <span>{elem}</span>
+                             
+                                <h4>{elem.name}</h4>
+                                  <span>{elem.comment}</span>
                              </div>
                             </div>
                      })}

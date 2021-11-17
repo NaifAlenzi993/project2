@@ -27,7 +27,7 @@ import Members from './component/Profile/Members';
 
 function App() {
     const [prodects, setProdects] = useState("")
-    const [userOnline, setUserOnline] = useState({type: "guest"})
+    const [userOnline, setUserOnline] = useState({type: "guest" , name:"guest420"})
    
     useEffect(()=>{
       const getStateUser = async ()=> {
@@ -63,10 +63,13 @@ function App() {
                   <Route path="/Cars" render = {() => (
                     <Cars prodectsTr = {prodects}></Cars>
                   )}/>
+                  <Route path="/car/:id" render = {() => (
+                    <Select user = {userOnline}></Select>
+                  )}/>
                   <Route path="/search" component={Search}/>
                   <Route path="/Parts" component={Parts} />
                   <Route path="/mainten" component={mainten} />
-                  <Route path="/car/:id" exact component={Select} />
+                 
                   <Route path="/part/:id" exact component={SelectParts} />
                   <Route path="/bookmark" exact component={Bookmark} />
                   {/* <Route path="/login" exact component={Login} /> */}
