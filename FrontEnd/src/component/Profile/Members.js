@@ -1,17 +1,18 @@
-import React, {useState , useEffect} from 'react'
-import axios from 'axios';
-import "../Profile/Profile.css"
+import React , {useState , useEffect} from 'react'
+import axios from 'axios'
 
+export default function Members() {
+    const [members, setMembers] = useState([])
+    
+   
 
-export default function Profile() {
-    const [profile, setProfile] = useState([])
-
+    
     useEffect(() => {
         const get = async () => {
-         await axios.get('http://localhost:5000/profile')
+         await axios.get('http://localhost:5000/users')
          .then(res =>{
            console.log("users",res.data.users)
-           setProfile(res.data)
+           setMembers(res.data)
          })
          .catch(err => {
            console.log(err);
@@ -21,16 +22,15 @@ export default function Profile() {
          get()
          
          }, [])
-     
-        function profilePage(arr){
-            return <div>
-            <h2 id="profile-header">My profile</h2>
-                {arr && arr.map((elem , i )=>{
+    return (
+        
+        <div>
+         {members && members.map((elem , i )=>{
                     return (
                         
                     <div >
                         
-                        <div className="member">
+                        <div  className="member">
                         <span>{elem.id}</span>
                         <br />
                         <img src={elem.url} alt="" width={200} height={150} />
@@ -47,13 +47,6 @@ export default function Profile() {
                     )
                 
             })}
-             
-            </div>  
-        }
-        return (
-        <div>
-            {profilePage(profile)}
         </div>
-    ) 
-        } 
-
+    )
+}
