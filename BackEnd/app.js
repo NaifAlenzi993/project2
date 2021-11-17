@@ -47,7 +47,7 @@ let Prodects = { cars: [
                         {id: 5 , name:"Chevrolet Tahoe 2021" , url:imgCar[4] , vid:carVid[4] ,info:"" , price:54000 , type: "larg" , comments: [] , like:"black" ,  rate: 5} , 
                         {id: 6 , name:"Chevrolet Cheyenne 2019" , url:imgCar[5] , vid:carVid[5] ,info:"" , price:57000 , type:"larg" , comments: [], like:"black" ,  rate: 3}] ,
                       
-                      
+                    
                         
   parts:[
     {id:1,  name:"New Front Grille For 2007-2014 GMC Yukon With Denali Package, Chrome GM1200610" , url:partsImg[0] , price:201},
@@ -222,12 +222,12 @@ app.post("/comment/" , (req , res) => {
  let obj = req.body
  Prodects.cars.forEach((element , i) => {
    if (obj.id == element.id){
-    Prodects.cars[i].comments.push(obj.comment)
+    Prodects.cars[i].comments.push(obj)
     console.log(Prodects.cars[i].comments);
    }
  });
  res.status(200);
- res.json(Prodects.cars[obj.id-1].comments);
+ res.json(Prodects.cars[obj.id-1]);
  
 });
 
