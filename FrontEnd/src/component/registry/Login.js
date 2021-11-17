@@ -34,7 +34,7 @@ export default function Login(props) {
                <div className="login-main">
                     <h3>LOGIN IN</h3>
                      <input  onChange={(e)=>{setInputUsername(e.target.value)}} type="text" className='form-control' placeholder='UserName'/>
-                     <input  onChange={(e)=>{setInputPassword(e.target.value)}} type="text" className='form-control' placeholder='Password'/>
+                     <input  onChange={(e)=>{setInputPassword(e.target.value)}} type="password" className='form-control' placeholder='Password'/>
                      {<Link  id='navLink' to="/Home"><button onClick={() => {onClickHandle()}} className='btn btn-primary'>LOGIN IN</button></Link> }
                </div>
            </div>

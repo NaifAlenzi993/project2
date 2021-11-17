@@ -9,16 +9,18 @@ export default function Header({user , changeUser}) {
 
    
 
-    
+console.log("user",user );    
 
     const onClickLogOut = async () => {
 
         console.log("from onClick logout",user.id , user.name);
+        changeUser({type: "guest" , name: "guest420"});
+        console.log("logout");
+   
        
         const response = await axios.delete(`http://localhost:5000/logout/${user.id}`);
-
-        changeUser({type: "guest"});
-   
+        
+        
     }
   
 

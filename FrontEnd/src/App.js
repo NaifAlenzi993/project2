@@ -55,7 +55,7 @@ function App() {
     <>
       <BrowserRouter>
                <div>
-                  <Header user = {userOnline} changeUser = {x =>setUserOnline(x)} />
+                  <Header user = {userOnline} changeUser = {setUserOnline} />
                   <Route exact={true} path="/" component={Home} />
                   <Route path="/Home" render = {() => (
                     <Home changeUser = {x =>setUserOnline(x)}></Home>
