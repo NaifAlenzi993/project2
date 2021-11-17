@@ -25,31 +25,40 @@ import Profile from './component/Profile/Profile';
 
 
 function App() {
-    const [prodects, setProdects] = useState("Active")
-
-    const [userActive, setUserActive] = useState("user")
+    const [prodects, setProdects] = useState("")
+    const [userOnline, setUserOnline] = useState({type: "guest"})
    
+    useEffect(()=>{
+      const getStateUser = async ()=> {
+        let response = await axios.get(`http://localhost:5000/login/`);
+
     
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/login')
-        .then(res =>{
-          console.log("from App" ,res.data)
-          setProdects(res.data)
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }, [])
+        if (response.data !== "-1"){
+          // setUserOnline()
+          setUserOnline(response.data)
+          // console.log("app get state",response.data);
+        }
+      }
+      
+      getStateUser()
+
+    } , [])
+
+    // const ChangeUserOnline = (user) => {
+    //   setUserOnline(user)
+    // }
 
 
   return (
     <>
       <BrowserRouter>
                <div>
-                  <Header user = {userActive}  />
+                  <Header user = {userOnline} changeUser = {x =>setUserOnline(x)} />
                   <Route exact={true} path="/" component={Home} />
-                  <Route path="/Home" component={Home} />
+                  <Route path="/Home" render = {() => (
+                    <Home changeUser = {x =>setUserOnline(x)}></Home>
+                  )}/>
                   <Route path="/Cars" render = {() => (
                     <Cars prodectsTr = {prodects}></Cars>
                   )}/>
@@ -59,8 +68,12 @@ function App() {
                   <Route path="/car/:id" exact component={Select} />
                   <Route path="/part/:id" exact component={SelectParts} />
                   <Route path="/bookmark" exact component={Bookmark} />
-                  <Route path="/login" exact component={Login} />
+                  {/* <Route path="/login" exact component={Login} /> */}
                   <Route path="/profile" exact component={Profile} />
+                
+                  <Route path="/login" render = {() => (
+                    <Login changeUser = {x =>setUserOnline(x)}></Login>
+                  )}/>
                   
 
 
