@@ -27,10 +27,8 @@ export default function Bookmark() {
         
 
         if (response.data == "-1") {
-            const copyArr = [...Likes]
-            copyArr.splice(id-1,1)
-            setLikes(copyArr)
             const response = await axios.delete(`http://localhost:5000/like/${id}`)
+            setLikes(response.data)
         }
       
     }

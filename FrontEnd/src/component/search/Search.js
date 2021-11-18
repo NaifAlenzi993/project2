@@ -29,9 +29,9 @@ export default function Search() {
  
         if (response.data == "-1") {
             response = await axios.delete(`http://localhost:5000/like/${id}`)
-            console.log('delete' , response.data);
-        }else{
-            setProdects(response.data)
+            // console.log('delete' , response.data);
+        // }else{
+        //     setProdects(response.data)
         }
     }
 
