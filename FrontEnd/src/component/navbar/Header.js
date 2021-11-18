@@ -46,7 +46,7 @@ export default function Header({user , changeUser}) {
                         <NavDropdown.Item> <Link onClick={() => {onClickLogOut()}} id='navLink' to="/Home">LOGOUT</Link></NavDropdown.Item>
                        
                     </NavDropdown>
-        <h4 style={{color:"white" , padding: "5px"}}>{"Welcome " + user.name}</h4>
+        <h5 style={{color:"white" , padding: "7.6px" , border: "1px solid black" , marginLeft:"2px"}}>{"Welcome " + user.name}</h5>
     </>
     }
 
@@ -66,7 +66,7 @@ export default function Header({user , changeUser}) {
                         <NavDropdown.Item> <Link onClick={() => {onClickLogOut()}} id='navLink' to="/Home">LOGOUT</Link></NavDropdown.Item>
                        
                     </NavDropdown>
-        <h4 style={{color:"white" , padding: "5px"}}>{"Welcome " + user.name}</h4>
+                    <h5 style={{color:"white" , padding: "7.6px" , border: "1px solid black" , marginLeft:"2px"}}>{"Welcome " + user.name}</h5>
 
     </>
     }
