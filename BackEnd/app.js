@@ -109,14 +109,14 @@ app.get("/profile", (req, res) => {
 
 app.post("/message/" , (req , res) => {
   let obj = req.body 
-  console.log("msg",obj);
+  // console.log("msg",obj);
   users.forEach((element , i) => {
     if (obj.id == element.id){
       users[i].message.push(obj.from  +"|"+ obj.mag);
     }
   });
 
-  console.log(users);
+  // console.log(users);
   res.status(200);
   res.json("k");
  });
@@ -125,7 +125,7 @@ app.post("/message/" , (req , res) => {
 // logout 
 app.delete("/logout/:id", (req, res) => {
   let state = false
-  console.log(req.params.id);
+  // console.log(req.params.id);
   users.forEach((elem)=>{
     if (elem.id == req.params.id){
       elem.state = false
@@ -229,7 +229,7 @@ app.post("/comment/" , (req , res) => {
  Prodects.cars.forEach((element , i) => {
    if (obj.id == element.id){
     Prodects.cars[i].comments.push(obj)
-    console.log(Prodects.cars[i].comments);
+    // console.log(Prodects.cars[i].comments);
    }
  });
  res.status(200);
@@ -241,7 +241,7 @@ app.post("/comment/" , (req , res) => {
 
 app.get("/car/:id", (req, res) => {
   let id = req.params.id
-  console.log(Prodects.cars[id-1].name);
+  // console.log(Prodects.cars[id-1].name);
    res.status(200);
   res.json(Prodects.cars[id-1]);
 });
@@ -250,7 +250,7 @@ app.get("/car/:id", (req, res) => {
 
 app.get("/part/:id", (req, res) => {
   let id = req.params.id
-  console.log(Prodects.parts[id-1].name);
+  // console.log(Prodects.parts[id-1].name);
    res.status(200);
   res.json(Prodects.parts[id-1]);
 
@@ -266,35 +266,3 @@ app.listen(port, () => {
   console.log("server is running");
 });
 
-
-// app.post("/todos/:name", (req, res) => {
-//   const newName = req.params.name;
-//   todos.push(newName);
-//   console.log(todos);
-//   res.status(200);
-//   res.json(todos);
-// });
-
-// app.delete("/todos/delete/:id" , (req , res) => {
-//   const id = req.params.id;
-//   todos.splice(id , 1)
-//   console.log(todos);
-//   res.status(200);
-//   res.json(todos);
-// });
-
-// app.put("/todos/update/" , (req , res) => {
-//  const {newVal , oldVal} = req.body
-
-// console.log(todos.findIndex(()=> oldVal));
-//  todos.forEach((element , i) => {
-//    if (oldVal == element) {
-//     todos[i] = newVal
-//    }
-//  })
-
-//  console.log(todos);
-
-//   res.status(201);
-//   res.json(todos);
-// });

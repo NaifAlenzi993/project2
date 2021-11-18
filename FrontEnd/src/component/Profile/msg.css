@@ -14,4 +14,8 @@ margin-top: 10px;
     border: solid 1px black;
     width: 40%;
     margin: 10px;
+    background-color: rgb(163, 157, 157);
+    box-shadow: 0px 0px 10px black;
+    padding: 10px;
+    border-radius: 10px;
 }
