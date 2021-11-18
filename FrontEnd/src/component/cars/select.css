@@ -107,3 +107,34 @@
     background-color: rgba(255, 255, 255, 0.733);
     justify-content: center;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .into-car{
+        width: 100%
+        
+    }
+
+    .img-info{
+        width: 100%
+    }
+
+    .replay input{
+        width: 100%;
+    }
+
+    #comment-span{
+        width: 100%;
+    }
+
+    #coment-show{
+        width: 100%;
+    }
+
+    .comments{
+        width: 100%;
+        font-size: 17px;
+    }
+
+
+  }

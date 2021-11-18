@@ -75,11 +75,7 @@ export default function Select({user}) {
                      
                      {cars.comments && cars.comments.map((elem) => {
                         return <div id='coment-show'>
-                            <div className='img-comment'>
-
-                            </div>
                             <div id='comment-span'>
-                            
                                 <h4>{elem.name}</h4>
                                 <span>{elem.comment}</span>
                              </div>
