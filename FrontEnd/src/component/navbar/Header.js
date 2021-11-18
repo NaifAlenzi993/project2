@@ -9,7 +9,7 @@ export default function Header({user , changeUser}) {
 
    
 
-console.log("user",user );    
+// console.log("user",user );    
 
     const onClickLogOut = async () => {
 
@@ -28,7 +28,6 @@ console.log("user",user );
         return <>
         <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
-        <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/login">LOGIN</Link> </Nav.Link>
         {/* <Nav.Link> <Link id='navLink' to="/registry">REGISTRY</Link> </Nav.Link> <br></br> */}
     </>
@@ -39,7 +38,7 @@ console.log("user",user );
         <Nav.Link> <Link id='navLink' to="/Home">HOME</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/search">SEARCH</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
-        
+        <Nav.Link> <Link id='navLink' to="/massage">MASSAGES( {user.msgcount} )</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/members">MEMBERS</Link> </Nav.Link>
         <br></br>
         <NavDropdown id='NavDropown' title = "ACCOUNT">
@@ -58,6 +57,7 @@ console.log("user",user );
         <Nav.Link> <Link id='navLink' to="/Bookmark">BOOKMARK</Link> </Nav.Link>
        
         {/* <Nav.Link> <Link id='navLink' to="/admin">Admin</Link> </Nav.Link> */}
+        <Nav.Link> <Link id='navLink' to="/Bookmark">MASSAGES( {user.msgcount} )</Link> </Nav.Link>
         <Nav.Link> <Link id='navLink' to="/members">MEMBERS</Link> </Nav.Link>
         {/* <Nav.Link onClick={() => {onClickLogOut()}}><Link id='navLink' to="/Home">LOGOUT</Link></Nav.Link> <br></br> */}
         <NavDropdown id='NavDropown' title = "ACCOUNT">

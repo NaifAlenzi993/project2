@@ -32,8 +32,6 @@ const partsImg = [
   "https://ecom-dam.ext.gm.com/parts/images/19_GMC_SIE_BAR_01.jpg/640X640",
   "https://media.chevrolet.com/content/Pages/news/ca/en/2014/Mar/0314_CamaroZ28/_jcr_content/rightpar/imagewithmodal/image.resize.maxw_276.jpg/1393266503756.jpg",
   "https://i.ebayimg.com/images/g/LkYAAOSwgmJXxPYP/s-l300.jpg"
-  
-
 ]
 
 
@@ -66,9 +64,9 @@ imgProfile = [
 ]
 
 const users = [
-  {id:1 , name:"mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:imgProfile[0],state:false , message:[]},
-  {id:2 , name:"naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[]},
-  {id:3 , name:"hiji" , email:"hiji@hiji.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[]},
+  {id:1 , name:"mayouf" , email:"mayouf@mayouf.com" , password:1234 , type:"Admin" , url:imgProfile[0],state:false , message:[] , toggle:false},
+  {id:2 , name:"naif" , email:"naif@naif.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[] , toggle:false},
+  {id:3 , name:"hiji" , email:"hiji@hiji.com" , password:1234 , type:"User" , url:imgProfile[1] , state:false ,  message:[] , toggle:false},
 
 ]
 
@@ -85,9 +83,8 @@ app.get("/users", (req, res) => {
   const user = req.body;
   const members = users.filter((elem , i )=>{
     return elem.state == false
-    
   })
-  console.log(members);
+  
   res.status(200);
   res.json(members);
 });
@@ -98,22 +95,30 @@ app.get("/profile", (req, res) => {
     return elem.state == true
     
   })
-  console.log(members);
   res.status(200);
   res.json(members);
 });
 
+// app.get("/message/:id" , (req , res) => {
+//   let id = req.param.id
+//   console.log("id" ,id);
+
+//   res.status(200);
+//   res.json("k");
+//  });
+
 app.post("/message/" , (req , res) => {
   let obj = req.body 
+  console.log("msg",obj);
   users.forEach((element , i) => {
     if (obj.id == element.id){
-      users[i].message.push(obj.message)
-     console.log(users[i].message);
+      users[i].message.push(obj.from  +"|"+ obj.mag);
     }
   });
+
+  console.log(users);
   res.status(200);
-  res.json(users[obj.id-1].message);
-  
+  res.json("k");
  });
 
 
@@ -136,7 +141,7 @@ app.get("/login", (req, res) => {
   users.forEach(elem => {
     if (elem.state == true){
       res.status(200);
-      res.json({id:elem.id , name:elem.name , type:elem.type , url:elem.url});
+      res.json({id:elem.id , name:elem.name , type:elem.type , url:elem.url , msgcount: elem.message.length , message:elem.message});
       state = true
     }
   })
@@ -157,13 +162,11 @@ app.post("/login", (req, res) => {
   users.forEach(element => {
     if (element.name == name && element.password == password){
         res.status(200);
-        res.json({id:element.id , name: element.name,type: element.type})
+        res.json({id:element.id , name: element.name,type: element.type , msgcount: element.message.length , message:element.message})
         element.state = true
         isTrue = true
     }
   });
-
-
 
 
 // if not found name & pass in Array
@@ -194,7 +197,8 @@ app.post("/like/:id" , (req , res) => {
     Prodects.cars[id-1].like = "black"
     res.json("-1"); 
   }
-
+  res.status(200);
+  res.json("")
   
 })
 
@@ -216,8 +220,8 @@ app.delete("/like/:id" , (req , res) => {
   });
   // Likes.splice(id-1 , 1)
   // console.log(Likes);
-  // res.status(200);
-  // res.json(Likes);
+  res.status(200);
+  res.json(Likes);
 });
 
 app.post("/comment/" , (req , res) => {

@@ -20,6 +20,7 @@ import Bookmark from './component/bookmark/Bookmark';
 import Login from './component/registry/Login';
 import Profile from './component/Profile/Profile';
 import Members from './component/Profile/Members';
+import Massage from './component/Profile/Maseege'
 
 
 
@@ -27,13 +28,13 @@ import Members from './component/Profile/Members';
 
 function App() {
     const [prodects, setProdects] = useState("")
-    const [userOnline, setUserOnline] = useState({type: "guest" , name:"guest420"})
+    const [userOnline, setUserOnline] = useState({type: "guest" , name:"guest420" , msgcount:0})
    
     useEffect(()=>{
       const getStateUser = async ()=> {
         let response = await axios.get(`http://localhost:5000/login/`);
 
-    
+        
 
         if (response.data !== "-1"){
           // setUserOnline()
@@ -74,7 +75,15 @@ function App() {
                   <Route path="/bookmark" exact component={Bookmark} />
                   {/* <Route path="/login" exact component={Login} /> */}
                   <Route path="/profile" exact component={Profile} />
-                  <Route path="/members" exact component={Members} />
+                  {/* <Route path="/members" exact component={Members} /> */}
+                  <Route path="/members" render = {() => (
+                    <Members user = {userOnline}></Members>
+                  )}/>
+                  {/* <Route path="/massage" exact component={Massage} /> */}
+                  
+                  <Route path="/massage" render = {() => (
+                    <Massage user = {userOnline}></Massage>
+                  )}/>
                 
                   <Route path="/login" render = {() => (
                     <Login changeUser = {x =>setUserOnline(x)}></Login>
