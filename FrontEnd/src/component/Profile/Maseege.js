@@ -1,6 +1,7 @@
 
 import React , {useEffect , useState}from 'react'
 import axios from 'axios'
+import "./msg.css"
 
 export default function Maseege({user}) {
     
@@ -17,9 +18,11 @@ export default function Maseege({user}) {
     return (
         <div>
             {msg && msg.map((elem , i) => {
-                return  <div>
-                            <h2> {elem.split("|")[0]} </h2> 
+                return  <div className="msg">
+                            <h2> From: {elem.split("|")[0]} </h2> 
+                            <div className="mass">
                             <h5> {elem.split("|")[1]} </h5> 
+                            </div>
                     </div> 
             })}
             
