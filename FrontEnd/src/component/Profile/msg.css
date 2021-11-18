@@ -1,0 +1,17 @@
+.msg{
+width: 85%;
+height: auto !important;
+margin: auto;
+border: 1px solid black;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgba(255, 255, 255, 0.733);
+margin-top: 10px;
+}
+
+.mass{
+    border: solid 1px black;
+    width: 40%;
+    margin: 10px;
+}
